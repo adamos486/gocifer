@@ -1,0 +1,10 @@
+.DS_Store
+pkg
+src/cobb.com/server/vendor
+src/github.com/*
+src/golang.org/*
+src/gopkg.in/*
+src/sourcegraph.com/*
+**/.idea/*
+.env
+app
