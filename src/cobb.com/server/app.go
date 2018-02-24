@@ -19,6 +19,7 @@ func main() {
 		log.Fatal(err)
 	}
 
+	//open connection to db
 	db, err := sql.Open("postgres", os.Getenv("DB_ADDR"))
 	if err != nil {
 		log.Fatal(err)
@@ -28,7 +29,7 @@ func main() {
 	client := database.NewClient(db)
 	service := services.NewClient(client)
 	//init APIs
-	controllers.NewEventsApiClient(client, service)
+	controllers.NewEventsApiClient(service)
 
 	router := gin.Default()
 	router.POST("/add", controllers.AddEvent)

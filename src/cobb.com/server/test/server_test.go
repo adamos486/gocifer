@@ -25,7 +25,7 @@ var _ = Describe("Server", func() {
 		fakeDbClient = &fakeDb.FakeDBClient{}
 		client = database.NewClient(fakeDbClient)
 		service = services.NewClient(client)
-		eventController.NewEventsApiClient(client, service)
+		eventController.NewEventsApiClient(service)
 	})
 
 	It("should be able to add an Event", func() {

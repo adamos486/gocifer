@@ -14,12 +14,3 @@ type GetAllEventsResponseStruct struct {
 	Name        string    `pq:"name" json:"name"`
 	Description string    `pq:"description" json:"description"`
 }
-
-func NewEventRow(id int, name string, description string, dateAdded time.Time) *EventRow {
-	return &EventRow{
-		ID:          id,
-		Name:        name,
-		Description: description,
-		DateAdded:   dateAdded,
-	}
-}

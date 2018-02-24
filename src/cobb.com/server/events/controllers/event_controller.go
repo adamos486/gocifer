@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"net/http"
 
-	"cobb.com/server/database"
 	"cobb.com/server/events/models"
 	"github.com/gin-gonic/gin"
 	"database/sql"
@@ -18,11 +17,9 @@ type EventsService interface {
 	GetAllEvents() (*[]models.GetAllEventsResponseStruct, error)
 }
 
-var db database.DBClient
 var service EventsService
 
-func NewEventsApiClient(client database.Client, eventsService EventsService) {
-	db = client.DbClient
+func NewEventsApiClient(eventsService EventsService) {
 	service = eventsService
 }
 
@@ -90,7 +87,7 @@ func GetEvents(ctx *gin.Context) {
 func handleServerError(caller string, err error, ctx *gin.Context) {
 	fmt.Println(caller, ": -> ", err.Error())
 	ctx.AbortWithStatusJSON(http.StatusInternalServerError, gin.H{
-		"code": http.StatusInternalServerError,
+		"code":    http.StatusInternalServerError,
 		"message": err.Error(),
 	})
 	ctx.Done()

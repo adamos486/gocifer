@@ -81,7 +81,7 @@ var _ = Describe("Events Controller", func() {
 		fakeDbClient = &fakeDb.FakeDBClient{}
 		client = database.NewClient(fakeDbClient)
 		service = services.NewClient(client)
-		NewEventsApiClient(client, service)
+		NewEventsApiClient(service)
 		db, mock, err = sqlmock.New()
 		Expect(err).ShouldNot(HaveOccurred())
 		r = getRouter(false)
