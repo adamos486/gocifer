@@ -4,8 +4,10 @@ import (
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 
+	"bytes"
 	"cobb.com/server/database"
 	. "cobb.com/server/events/controllers"
+	"cobb.com/server/events/services"
 	fakeDb "cobb.com/server/fakes/database"
 	"database/sql"
 	"encoding/json"
@@ -17,8 +19,6 @@ import (
 	"net/http"
 	"net/http/httptest"
 	"time"
-	"cobb.com/server/events/services"
-	"bytes"
 )
 
 func getRouter(withTemplates bool) *gin.Engine {

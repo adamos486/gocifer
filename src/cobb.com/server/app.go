@@ -3,12 +3,12 @@ package main
 import (
 	"cobb.com/server/database"
 	"cobb.com/server/events/controllers"
+	"cobb.com/server/events/services"
 	"database/sql"
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	"log"
-	"cobb.com/server/events/services"
-	"github.com/joho/godotenv"
 	"os"
 )
 

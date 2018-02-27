@@ -10,7 +10,7 @@ type EventRow struct {
 }
 
 type GetAllEventsResponseStruct struct {
-	ID          int       `pq:"id" json:"id"`
-	Name        string    `pq:"name" json:"name"`
-	Description string    `pq:"description" json:"description"`
+	ID          int    `pq:"id" json:"id"`
+	Name        string `pq:"name" json:"name"`
+	Description string `pq:"description" json:"description"`
 }

@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"net/http"
 
-	"cobb.com/server/events/models"
-	"github.com/gin-gonic/gin"
-	"database/sql"
-	"io/ioutil"
 	"bytes"
+	"cobb.com/server/events/models"
+	"database/sql"
+	"github.com/gin-gonic/gin"
+	"io/ioutil"
 )
 
 type EventsService interface {

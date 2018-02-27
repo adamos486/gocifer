@@ -8,8 +8,8 @@ import (
 
 	"cobb.com/server/database"
 	eventController "cobb.com/server/events/controllers"
-	fakeDb "cobb.com/server/fakes/database"
 	"cobb.com/server/events/services"
+	fakeDb "cobb.com/server/fakes/database"
 )
 
 var _ = Describe("Server", func() {

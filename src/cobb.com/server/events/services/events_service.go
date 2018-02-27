@@ -2,10 +2,10 @@ package services
 
 import (
 	"cobb.com/server/database"
-	"time"
-	"database/sql"
 	"cobb.com/server/events/models"
+	"database/sql"
 	"errors"
+	"time"
 )
 
 type EventsServiceClient struct {
@@ -39,11 +39,12 @@ func (es *EventsServiceClient) AddNewEvent(name string, description string) (*mo
 	var event models.EventRow
 	row := es.DB.QueryRow("SELECT id, name, description, date_added FROM event WHERE date_added = $1", now)
 	if row != nil {
-		if err := row.Scan(&event.ID, &event.Name, &event.Description, &event.DateAdded); err != nil {
+		if err = row.Scan(&event.ID, &event.Name, &event.Description, &event.DateAdded); err != nil {
 			return nil, nil, err
 		}
 	} else {
-		rowsChanged, err := result.RowsAffected()
+		var rowsChanged int64
+		rowsChanged, err = result.RowsAffected()
 		if err != nil {
 			return nil, nil, err
 		}
