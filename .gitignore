@@ -1,4 +1,5 @@
 .DS_Store
+out
 pkg
 src/cobb.com/server/vendor
 src/github.com/*
